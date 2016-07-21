@@ -1,4 +1,6 @@
 <% @pics.each do |pic| %>
-	<h2><%= link_to pic.title, pic  %></h2>
+	<h2><%= link_to pic.title, pic %></h2>
 	<p><%= pic.description %></p>
+	<p><%= time_ago_in_words(pic.created_at) %> ago</p>
 <% end %>
+<%= link_to "New Pic", new_pic_path %>
