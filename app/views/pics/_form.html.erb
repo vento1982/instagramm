@@ -4,7 +4,7 @@
 			<%= pluralize(@pic.errors.count, "error") %>
 			prevented this Pic from saving
 			<ul>
-			<% @pic.errors.full_message.each do |error| %>
+			<% @pic.errors.full_messages.each do |error| %>
 				<li><%= error %></li>
 			<% end %>
 			</ul>
