@@ -1,4 +1,5 @@
 <h1><%= @pic.title %></h1>
+<p><%= image_tag @pic.image.url %></p>
 <p><%= @pic.description %></p>
 <p>Pic by <strong><%= @pic.user.email %></strong></p>
 <%= link_to "Back", root_path %>
