@@ -1,7 +1,30 @@
-<h1><%= @pic.title %></h1>
-<p><%= image_tag @pic.image.url %></p>
-<p><%= @pic.description %></p>
-<p>Pic by <strong><%= @pic.user.email %></strong></p>
-<%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_pic_path %>
-<%= link_to "Delete", pic_path, method: :delete, data: {confirm: "Are You sure?"} %>
+<div id="pic" class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="panel panel-default">
+			<div class="panel-heading text-center">
+				<%= image_tag @pic.image.url %>	
+			</div>
+			<div class="panel-body text-justify">
+				<h1><%= @pic.title %></h1>
+				<p><%= @pic.description %></p>
+			</div>
+			<div class="panel-footer">
+				<div class="row">
+					<div class="col-md-6">
+						<p>Pic by <strong><%= @pic.user.email %></strong></p>
+					</div>
+					<div class="col-md-6">
+						<div class="btn-group pull-right">
+							<% if user_signed_in? %>
+								<%= link_to "Edit", edit_pic_path, class: "btn btn-info btn-sm" %>
+								<%= link_to "Delete", pic_path, method: :delete, data: {confirm: "Are You sure?"}, class: "btn btn-danger btn-sm" %>
+							<% else %>
+								<%= link_to "Back", root_path %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
