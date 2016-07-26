@@ -1,10 +1,10 @@
-<div id="pic" class="row">
+<div id="pic_show" class="row">
 	<div class="col-md-6 col-md-offset-3">
 		<div class="panel panel-default">
-			<div class="panel-heading text-center">
+			<div class="panel heading pic_image">
 				<%= image_tag @pic.image.url %>	
 			</div>
-			<div class="panel-body text-justify">
+			<div class="panel-body">
 				<h1><%= @pic.title %></h1>
 				<p><%= @pic.description %></p>
 			</div>
@@ -15,6 +15,10 @@
 					</div>
 					<div class="col-md-6">
 						<div class="btn-group pull-right">
+								<%= link_to like_pic_path(@pic), method: :put, class: "btn btn-default btn-sm" do %>
+									<span class="glyphicon glyphicon-thumbs-up"></span>
+									<%= @pic.get_upvotes.size %>
+								<% end %>
 							<% if user_signed_in? %>
 								<%= link_to "Edit", edit_pic_path, class: "btn btn-info btn-sm" %>
 								<%= link_to "Delete", pic_path, method: :delete, data: {confirm: "Are You sure?"}, class: "btn btn-danger btn-sm" %>
